@@ -1,0 +1,4 @@
+interface:
+  display_name: "SnackStack Coach"
+  short_description: "Guide one-hour SnackStack learning challenges"
+  default_prompt: "Use $snackstack-coach to complete the current SnackStack challenge with tests and reflection."

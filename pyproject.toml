@@ -1,0 +1,55 @@
+[project]
+name = "snackstack-lab"
+version = "0.1.0"
+description = "A one-hour, coding-agent-guided LangGraph workshop"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "chromadb>=1.0.0",
+  "fastapi>=0.117.0",
+  "langchain-chroma>=0.2.0",
+  "langchain-openai>=0.3.0",
+  "langgraph>=1.0.0",
+  "pydantic-settings>=2.10.0",
+  "uvicorn>=0.35.0",
+]
+
+[dependency-groups]
+dev = [
+  "httpx>=0.28.0",
+  "mypy>=1.17.0",
+  "pytest>=8.4.0",
+  "pytest-asyncio>=1.1.0",
+  "pyyaml>=6.0.2",
+  "ruff>=0.12.0",
+]
+
+[project.scripts]
+snackstack = "snackstack.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/snackstack"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "challenge: learner challenge checks excluded from default CI",
+  "live: requires OPENAI_API_KEY and makes network requests",
+]
+addopts = "-m 'not challenge and not live'"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["snackstack"]

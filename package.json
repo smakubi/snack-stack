@@ -1,0 +1,11 @@
+{
+  "name": "snackstack-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.18.0",
+  "scripts": {
+    "portal:dev": "pnpm --dir apps/portal dev",
+    "portal:build": "pnpm --dir apps/portal build",
+    "portal:lint": "pnpm --dir apps/portal lint"
+  }
+}
+
