@@ -2,6 +2,12 @@
 
 SnackStack is a one-hour, coding-agent-guided lab for learning the parts of an agent system that matter: retrieval constraints, specialist routing, and resumable human input.
 
+## Try the visual agent
+
+Open [the deployed SnackStack Agent Lab](https://portal-eta-teal-87.vercel.app/#agent) to type or speak a request and optionally hear the answer read aloud. The public playground mirrors the workshop's menu, order, routing, and human-input patterns with deterministic local data, so it requires no API key and creates no model spend. Open **View agent evidence** under a reply to inspect its route and tool steps.
+
+Voice input uses the browser's speech-recognition API and works best in current Chrome, Edge, or Safari. Grant microphone permission when prompted. The speaker button controls spoken answers.
+
 ## What learners build
 
 The repository is intentionally about 85% complete. A coding agent helps finish three small gaps while focused tests make the behavior visible.

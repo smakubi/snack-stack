@@ -1,4 +1,5 @@
 import { TracePlayer } from "./_components/trace-player";
+import { AgentConsole } from "./_components/agent-console";
 
 const challenges = [
   {
@@ -42,6 +43,7 @@ export default function Home() {
           <span>SnackStack</span>
         </a>
         <div className="nav-links">
+          <a href="#agent">Try the agent</a>
           <a href="#lab">The lab</a>
           <a href="#trace">Trace demo</a>
           <a href="https://github.com/smakubi/snack-stack">GitHub</a>
@@ -57,8 +59,8 @@ export default function Home() {
             watching the test fail, and explaining why the fix works.
           </p>
           <div className="hero-actions">
-            <a className="button primary" href="#setup">Start the lab</a>
-            <a className="button secondary" href="#trace">Explore a trace</a>
+            <a className="button primary" href="#agent">Talk to the agent</a>
+            <a className="button secondary" href="#setup">Start the lab</a>
           </div>
           <div className="hero-proof">
             <div><strong>85%</strong><span>scaffolded</span></div>
@@ -84,6 +86,14 @@ export default function Home() {
           <div className="merge-lines"><span /><span /></div>
           <div className="node answer-node"><span>03 / merge</span><strong>Grounded answer</strong></div>
         </div>
+      </section>
+
+      <section className="agent-section" id="agent">
+        <div className="section-heading agent-heading">
+          <div><span className="section-index">00</span><h2>Ask. Listen. Inspect.</h2></div>
+          <p>A working interface for the exact concepts inside the lab.</p>
+        </div>
+        <AgentConsole />
       </section>
 
       <section className="setup-strip" id="setup">
@@ -149,4 +159,3 @@ export default function Home() {
     </main>
   );
 }
-
