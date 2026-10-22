@@ -16,6 +16,6 @@ def format_menu(items: list[MenuItem]) -> str:
     if not items:
         return "I could not find a matching available item."
     return "\n".join(
-        f"- {item['name']} — ₹{item['price']} ({item['cuisine']}, {item['rating']}/5)"
+        f"- {item['name']} — ${item['price']} ({item['cuisine']}, {item['rating']}/5)"
         for item in sorted(items, key=lambda item: (-item["rating"], item["price"]))
     )
