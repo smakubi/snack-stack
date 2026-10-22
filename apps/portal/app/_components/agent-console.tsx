@@ -40,7 +40,7 @@ type DisplayMessage = ChatMessage & {
 
 const starters = [
   "Show me vegan options",
-  "What is under ₹300?",
+  "What is under $300?",
   "Track order ORD-203",
   "Pizza options and track ORD-202",
 ];
@@ -88,7 +88,7 @@ export function AgentConsole() {
   function speak(text: string) {
     if (!speechEnabled || !("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text.replace(/₹/g, "rupees "));
+    const utterance = new SpeechSynthesisUtterance(text.replace(/\$(\d+(?:\.\d+)?)/g, "$1 dollars"));
     utterance.rate = 1.02;
     utterance.pitch = 1;
     window.speechSynthesis.speak(utterance);
