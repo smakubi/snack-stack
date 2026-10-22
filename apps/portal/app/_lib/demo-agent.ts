@@ -66,7 +66,7 @@ function searchMenu(query: string): MenuItem[] {
   const lowered = query.toLowerCase();
   const cuisine = ["indian", "italian", "american", "fusion"].find((value) => lowered.includes(value));
   const dietary = ["vegan", "vegetarian", "gluten-free"].find((value) => lowered.includes(value));
-  const priceMatch = lowered.match(/under\s*(?:₹|rs\.?\s*)?(\d+)/i);
+  const priceMatch = lowered.match(/under\s*(?:\$\s*)?(\d+)/i);
   const maxPrice = priceMatch ? Number(priceMatch[1]) : undefined;
   const namedTerms = ["pizza", "pasta", "chicken", "bowl", "burger", "paneer", "lassi"].filter((term) => lowered.includes(term));
 
@@ -86,7 +86,7 @@ function menuAnswer(query: string): string {
   const results = searchMenu(query);
   if (!results.length) return "I couldn't find an available item matching all of those filters. Try relaxing the cuisine, dietary, or price constraint.";
   return `Here ${results.length === 1 ? "is" : "are"} ${results.length === 1 ? "a matching option" : "the best matching options"}: ${results
-    .map((item) => `${item.name} for ₹${item.price}`)
+    .map((item) => `${item.name} for ${item.price}`)
     .join(", ")}.`;
 }
 
